@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Women's Day — 20/10</title>
+  <style>
+    :root{
+      --bg1:#0f172a; /* dark blue */
+      --bg2:#0ea5e9; /* sky blue */
+      --accent:#7dd3fc;
+      --glass: rgba(255,255,255,0.06);
+      --card: rgba(255,255,255,0.04);
+      --text: #e6f7ff;
+      --muted: rgba(230,247,255,0.7);
+    }
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
+    body{
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(14,165,233,0.12), transparent),
+                  linear-gradient(180deg,var(--bg1), #022f4a 60%);
+      color:var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+      box-sizing:border-box;
+    }
+
+    .card{
+      width:100%;
+      max-width:980px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:18px;
+      padding:36px;
+      box-shadow: 0 10px 30px rgba(2,14,28,0.6);
+      backdrop-filter: blur(8px);
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      align-items:center;
+    }
+
+    .left{
+      padding-right:8px;
+    }
+
+    h1{
+      margin:0 0 8px 0;
+      font-size:56px;
+      line-height:1;
+      letter-spacing: -0.02em;
+    }
+    .sub{
+      color:var(--muted);
+      margin-bottom:22px;
+      font-size:18px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 22px;
+      background: linear-gradient(90deg,var(--bg2), var(--accent));
+      color:#052034;
+      border-radius:12px;
+      font-weight:700;
+      cursor:pointer;
+      border:none;
+      box-shadow: 0 6px 18px rgba(14,165,233,0.18);
+      transition: transform .12s ease, box-shadow .12s ease;
+      text-decoration:none;
+    }
+    .btn:active{ transform: translateY(1px) }
+
+    .note{
+      margin-top:18px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .right{
+      display:flex;
+      gap:12px;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .image-row{
+      display:flex;
+      gap:10px;
+      width:100%;
+    }
+    .image{
+      flex:1;
+      min-height:120px;
+      border-radius:12px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.04);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      position:relative;
+    }
+    .image img{width:100%;height:100%;object-fit:cover;display:block}
+
+    .footer{
+      margin-top:18px;
+      font-size:12px;
+      color:var(--muted);
+      text-align:left;
+    }
+
+    /* modal */
+    .modal-backdrop{
+      position:fixed;inset:0;background:rgba(2,6,23,0.6);
+      display:flex;align-items:center;justify-content:center;z-index:60;opacity:0;pointer-events:none;
+      transition:opacity .18s ease;
+    }
+    .modal-backdrop.show{opacity:1;pointer-events:auto}
+    .modal{
+      width:90%;
+      max-width:520px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border-radius:14px;padding:22px;box-shadow:0 10px 30px rgba(2,14,28,0.6);
+      color:var(--text);
+    }
+    .modal h3{margin:0 0 6px 0}
+    .modal p{margin:0 0 12px 0;color:var(--muted)}
+    .close-btn{display:inline-block;padding:8px 12px;border-radius:10px;background:var(--card);cursor:pointer;border:1px solid rgba(255,255,255,0.03)}
+
+    /* responsive */
+    @media (max-width:880px){
+      .card{grid-template-columns:1fr; padding:24px}
+      h1{font-size:40px}
+      .right{order:-1; margin-bottom:8px}
+      .image{min-height:100px}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" role="main" aria-labelledby="title">
+    <div class="left">
+      <div style="color:var(--muted);font-weight:600;margin-bottom:10px">Happy Women's Day .........................................................................................................................................From With Love 20/10!</div>
+      <h1 id="title">Happy<br>Women's<br>Day!</h1>
+      <div class="sub">Gửi tới những người phụ nữ tuyệt vời — chúc một ngày 20/10 đầy yêu thương 💐</div>
+      <button id="cta" class="btn" aria-haspopup="dialog">Click me now !</button>
+
+      <div class="note">Bạn có thể nhấn nút để mở lời chúc và xem những hình ảnh nhỏ.</div>
+
+      <div class="footer">From With Love — 20/10</div>
+    </div>
+
+    <div class="right" aria-hidden="false">
+      <div class="image-row">
+        <div class="image"><img src="https://picsum.photos/seed/1/800/600" alt="flower 1" loading="lazy"></div>
+        <div class="image"><img src="https://picsum.photos/seed/2/800/600" alt="flower 2" loading="lazy"></div>
+        <div class="image"><img src="https://picsum.photos/seed/3/800/600" alt="flower 3" loading="lazy"></div>
+      </div>
+      <div style="font-size:13px;color:var(--muted);margin-top:10px">Share this page — make someone's day ✨</div>
+    </div>
+  </div>
+
+  <!-- modal -->
+  <div id="backdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal" role="document">
+      <h3>Chúc mừng ngày 20/10!</h3>
+      <p>Gửi người phụ nữ đặc biệt — cảm ơn vì đã luôn yêu thương và che chở.</p>
+      <div style="display:flex;gap:8px;justify-content:flex-end">
+        <button id="close" class="close-btn">Đóng</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const cta = document.getElementById('cta');
+    const backdrop = document.getElementById('backdrop');
+    const close = document.getElementById('close');
+
+    cta.addEventListener('click', () => {
+      backdrop.classList.add('show');
+      backdrop.setAttribute('aria-hidden','false');
+    });
+    close.addEventListener('click', () => {
+      backdrop.classList.remove('show');
+      backdrop.setAttribute('aria-hidden','true');
+    });
+
+    // close on escape
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape') { backdrop.classList.remove('show'); backdrop.setAttribute('aria-hidden','true') }
+    });
+  </script>
+
+</body>
+</html>
